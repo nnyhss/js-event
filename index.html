@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nguyễn Xuân Huy - 17CNTT1</title>
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Nguyễn Xuân Huy - 17CNTT1</a>
+      <button
+        type="button"
+        id="createBtn"
+        class="btn btn-success"
+        onclick="setModal('block')"
+      >
+        ADD PRODUCT
+      </button>
+    </nav>
+
+    <div class="container">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="bg-dark text-white">
+            <th colspan="2" scope="col"></th>
+            <th scope="col">Sản phẩm</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Tổng</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          
+          <tr>
+            <th scope="row">1</th>
+            <td class="item-img">
+              <img src="./default.webp" alt="me" style="width: 50px" />
+            </td>
+            <td>Nho</td>
+            <td id="price-1">120000đ</td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                id="quantity-1"
+                value="1"
+                onkeyup="onKeyUp(1)"
+              />
+            </td>
+            <td class="total" id="total-1">120000đ</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td class="item-img">
+              <img src="https://cdn.iconscout.com/icon/free/png-256/apple-fruit-food-vitamin-healthy-31182.png" alt="me" style="width: 50px" />
+            </td>
+            <td>Táo</td>
+            <td id="price-2">40000đ</td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                id="quantity-2"
+                value="1"
+                onkeyup="onKeyUp(2)"
+              />
+            </td>
+            <td class="total" id="total-2">40000đ</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td class="item-img">
+              <img src="./default.webp" alt="me" style="width: 50px" />
+            </td>
+            <td>Ổi</td>
+            <td id="price-3">15000đ</td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                id="quantity-3"
+                value="2"
+                onkeyup="onKeyUp(3)"
+              />
+            </td>
+            <td class="total" id="total-3">30000đ</td>
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+
+    <div id="createModal" class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Product</h5>
+            <button type="button" class="close" onclick="setModal('none')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="pname">Product Name</label>
+                <input type="text" class="form-control" id="pname" value="" />
+              </div>
+              <div class="form-group">
+                <label for="price">Product Price</label>
+                <input type="number" class="form-control" id="price" value="" />
+              </div>
+              <div class="form-group">
+                <label for="pquantity">Product Quantity</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="pquantity"
+                  value=""
+                />
+              </div>
+              <div class="form-group">
+                <label for="pimage">Product Image</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pimage"
+                  placeholder="Image link or leave blank to use default image"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="setModal('none')"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-warning" onclick="clearAll()">
+              Clear
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              onclick="addProduct()"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
